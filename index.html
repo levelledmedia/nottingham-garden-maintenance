@@ -1090,17 +1090,25 @@
           <p class="section__description">Fill out the form below and we&#39;ll get back to you with a competitive quote.</p>
         </div>
       </div>
-      <form class="quote-form">
-        <div class="form-row">
-          <input type="text" placeholder="Full name" class="form-input" required>
-          <input type="text" placeholder="Postcode" class="form-input" required>
+      <form class="quote-form" id="quoteForm" action="https://levelled-form-handler.vercel.app/api/submit" method="POST">
+        <input type="hidden" name="client_id" value="nottingham-garden-maintenance">
+        <input type="hidden" name="business_name" value="Nottingham Garden Maintenance">
+        <input type="hidden" name="form_timestamp" id="formTimestamp">
+        <div class="hp-trap" aria-hidden="true">
+          <label for="company-field">Company</label>
+          <input type="text" id="company-field" name="company" tabindex="-1" autocomplete="off">
         </div>
         <div class="form-row">
-          <input type="email" placeholder="Email address" class="form-input" required>
-          <input type="tel" placeholder="Phone number" class="form-input" required>
+          <input type="text" name="name" placeholder="Full name" class="form-input" required>
+          <input type="text" name="postcode" placeholder="Postcode" class="form-input" required>
         </div>
-        <textarea placeholder="Briefly describe your project" class="form-input form-textarea" required></textarea>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email address" class="form-input" required>
+          <input type="tel" name="phone" placeholder="Phone number" class="form-input" required>
+        </div>
+        <textarea name="message" placeholder="Briefly describe your project" class="form-input form-textarea" maxlength="1000" required></textarea>
         <button type="submit" class="btn btn--primary btn--full">Yes, I Want a Free Quote</button>
+        <div class="form-message" id="formMessage"></div>
       </form>
     </div>
   </section>
